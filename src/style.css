@@ -1,0 +1,9 @@
+#volume{
+    color: aliceblue;
+    font-size: 5em;
+    position: absolute;
+	width: 100%;
+	z-index: 100;
+	display:block;
+    padding: 50px;
+}

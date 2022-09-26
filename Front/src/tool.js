@@ -38,7 +38,7 @@ const material = new THREE.MeshPhongMaterial({
 
 
 const loader = new STLLoader();
-loader.load('models/Bracket.stl',
+loader.load('3Dmodels/Bracket.stl',
             function (geometry){
                 const mesh = new THREE.Mesh(geometry, material)
                 scene.add(mesh)

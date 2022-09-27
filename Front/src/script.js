@@ -6,20 +6,16 @@ function volume(){
         .then((data) => {
 
             FormData = new FormData();
-            FormData.append('file', data, "file")
+            FormData.append('file', data, "Bracket.stl")
 
             fetch('http://127.0.0.1:5000/volume',{
                 method: "POST",
                 body: FormData
             })
 
-            .then(response =>{
-                if (response.ok){
-                    console.log("ok");
-                }
-                else{
-                    console.log('false')
-                }
+            .then(response => response.json())
+            .then((data) => {
+                document.getElementById("volume").innerHTML += `<strong>${data} mm3</strong>`
             })
     })
 

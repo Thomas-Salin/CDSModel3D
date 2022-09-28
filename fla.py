@@ -16,9 +16,10 @@ def volume():
 
     file = request.files.get('file') #Recuperation de notre modele dans notre requete front 
     filename = secure_filename(file.filename)
-    file.sane(os.path.join(app.config['UPLOAD_FOLDER'], filename)) #Enrengistrement de notre fichier à charger
-    mesh = trimesh.load_mesh("Back/" + str(filename)) #Chargement du mesh fichier par trimesh 
-    volume = mesh.volume #Calcul du volume 
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) #Enrengistrement de notre fichier à charger
+    mesh = trimesh.load_mesh("" + str(filename)) #Chargement du mesh fichier par trimesh 
+    volume = mesh.volume #Calcul du volume
+    os.remove(filename) 
     return str(volume) 
 
 

@@ -2,22 +2,18 @@ import * as THREE from '/three/three.module.js'
 import { OrbitControls } from '/three/OrbitControls.js'
 import { STLLoader } from '/three/STLLoader.js'
 
-const colorScene = new THREE.Color(0xF0F0F2);
-
-
-const scene = new THREE.Scene({
-    background: colorScene,
-});
+const scene = new THREE.Scene()
 
 const light = new THREE.DirectionalLight( 0xffffff, 1 );
-light.position.set( 100, 100, 100 ); //default; light shining from top
-light.castShadow = false; // default false
+light.position.set( 100, 100, 100 ); 
+light.castShadow = false; 
 scene.add( light );
 
 const light1 = new THREE.DirectionalLight( 0xffffff, 1 );
-light1.position.set( -100, -100, -100 ); //default; light shining from top
-light1.castShadow = false; // default false
+light1.position.set( -100, -100, -100 ); 
+light1.castShadow = false; 
 scene.add( light1 );
+
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 

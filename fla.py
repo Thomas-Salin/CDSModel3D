@@ -4,7 +4,7 @@ import os
 import trimesh
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'Back'
+app.config['UPLOAD_FOLDER'] = ''
 
 
 @app.route('/volume', methods=['POST'])
@@ -16,7 +16,7 @@ def volume():
 
     file = request.files.get('file') #Recuperation de notre modele dans notre requete front 
     filename = secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) #Enrengistrement de notre fichier à charger
+    file.sane(os.path.join(app.config['UPLOAD_FOLDER'], filename)) #Enrengistrement de notre fichier à charger
     mesh = trimesh.load_mesh("Back/" + str(filename)) #Chargement du mesh fichier par trimesh 
     volume = mesh.volume #Calcul du volume 
     return str(volume) 
